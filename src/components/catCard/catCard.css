@@ -1,4 +1,38 @@
 .cat-card {
     width: 225px;
     height: 225px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+.cat-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.24), 0px 9px 18px rgba(0, 0, 0, 0.18);
+}
+.cat-card .to-favorite {
+    display: none;
+}
+.cat-card:hover .to-favorite {
+    display: block;
+    position: absolute;
+    background: url("../../../src/assets/images/Vector.svg") no-repeat;
+    width: 40px;
+    height: 40px;
+    margin: 28px;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.cat-card:hover .to-favorite.liked {
+    background: url("../../../src/assets/images/Vector-full-fill.svg") no-repeat;
+}
+.cat-card .to-favorite:hover {
+    background: url("../../../src/assets/images/Vector-full-fill.svg") no-repeat;
+}
+.cat-card .cat-image {
+    height: 100%;
+    min-width: 100%;
+    width: auto;
 }

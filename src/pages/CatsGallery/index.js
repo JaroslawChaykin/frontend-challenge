@@ -16,9 +16,9 @@ const CatsGallery = () => {
     if(error) return <h1>{error}</h1>
 
     return (
-      <div>
+      <div className={'cats-gallery'}>
           {
-              cats.map(item => <CatCard cat={item}/>)
+              cats.map(item => <CatCard key={item.id} cat={item}/>)
           }
       </div>
     );
