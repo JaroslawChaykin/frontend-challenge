@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchCats } from '../../store/slices/catsGallery/actions';
 import CatCard from '../../components/catCard/CatCard';
 import './catsGallery.css'
+import Loader from '../../ui/Loader/Loader';
 
 const CatsGallery = () => {
     const {cats, loading, error} = useSelector(state => state.cats)
@@ -12,7 +13,7 @@ const CatsGallery = () => {
         dispatch(fetchCats({limit: 10}))
     }, []);
 
-    if(loading) return <h1>loading...</h1>
+    if(loading) return <Loader />
     if(error) return <h1>{error}</h1>
 
     return (
