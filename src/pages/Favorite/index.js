@@ -7,7 +7,7 @@ const Favorite = () => {
     return (
       <div className={'favorite'}>
           {
-              favorite.map(cat => <CatCard cat={cat}/>)
+              favorite.map(cat => <CatCard key={cat.id} cat={cat}/>)
           }
       </div>
     );
