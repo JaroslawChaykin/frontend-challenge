@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCats } from '../../store/slices/catsGallery/actions';
+import CatCard from '../../components/catCard/CatCard';
 import './catsGallery.css'
 
 const CatsGallery = () => {
@@ -17,7 +18,7 @@ const CatsGallery = () => {
     return (
       <div>
           {
-              cats.map(item => <img src={item.url} alt=""/>)
+              cats.map(item => <CatCard cat={item}/>)
           }
       </div>
     );

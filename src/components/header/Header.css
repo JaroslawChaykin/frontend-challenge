@@ -1,0 +1,22 @@
+.header {
+    background: #2196F3;
+}
+
+.header-box {
+    display: flex;
+    height: 64px;
+}
+
+.header a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: white;
+    height: 100%;
+    font-size: 14px;
+    padding: 0 20px;
+}
+
+.header a:hover {
+    background: #1E88E5;
+}
