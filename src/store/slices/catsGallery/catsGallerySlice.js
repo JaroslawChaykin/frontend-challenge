@@ -3,6 +3,7 @@ import { fetchCats } from './actions';
 
 const initialState = {
     cats: [],
+    previousCats: [],
     error: '',
     loading: false
 };
@@ -15,6 +16,7 @@ const CatsGallerySlice = createSlice({
             state.loading = false;
             state.error = '';
             state.cats = [...state.cats, ...action.payload]
+            state.previousCats = state.cats
         })
         builder.addCase(fetchCats.pending, (state) => {
             state.loading = true;

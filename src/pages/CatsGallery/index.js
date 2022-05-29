@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCats } from '../../store/slices/catsGallery/actions';
 import CatCard from '../../components/catCard/CatCard';
-import './catsGallery.css';
 import Loader from '../../ui/Loader/Loader';
 import { throttle } from '../../utils/throttle';
+import './catsGallery.css';
 
 const CatsGallery = () => {
-    const {cats, loading, error} = useSelector(state => state.cats);
+    const {cats, previousCats, loading, error} = useSelector(state => state.cats);
     const dispatch = useDispatch();
 
     const handleScroll = (e) => {
@@ -17,7 +17,13 @@ const CatsGallery = () => {
     };
 
     useEffect(() => {
-        dispatch(fetchCats({limit: 20}));
+        if (JSON.stringify(previousCats) === JSON.stringify(cats) && cats.length !== 0 && previousCats.length !== 0) {
+            return
+        } else {
+            console.log(previousCats, cats);
+            dispatch(fetchCats({limit: 20}));
+        }
+
         window.addEventListener('scroll', throttle(handleScroll, 2000));
         return function () {
             window.removeEventListener('scroll', throttle(handleScroll, 2000));
