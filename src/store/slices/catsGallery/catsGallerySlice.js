@@ -14,7 +14,7 @@ const CatsGallerySlice = createSlice({
         builder.addCase(fetchCats.fulfilled, (state, action) => {
             state.loading = false;
             state.error = '';
-            state.cats = action.payload;
+            state.cats = [...state.cats, ...action.payload]
         })
         builder.addCase(fetchCats.pending, (state) => {
             state.loading = true;
