@@ -16,6 +16,9 @@
     font-size: 14px;
     padding: 0 20px;
 }
+.header a.active {
+    background: #1E88E5;
+}
 
 .header a:hover {
     background: #1E88E5;
